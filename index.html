@@ -21,6 +21,8 @@
 
 <body>
 
+    <!-- /////////////////////////////////////////////////////////////
+    Don't delete until new buttons made with for-loop shows assocaite gifs
     <button data-animal="shetland-sheepdog">Sheltie</button>
     <button data-animal="bulldog">Bulldog</button>
     <button data-animal="labrador">Labrador</button>
@@ -33,17 +35,41 @@
     <button data-animal="border-collie">Border Collie</button>
     <button data-animal="dalmation">Dalmation</button>
     <button data-animal="australian-shepherd">Australian Shepherd</button>
+    ///////////////////////////////////////////////////////////////////////// -->
+    <div class="container-fluid">
+
+        <!-- DOING IT THIS WAY-->
+        <div id="buttons"></div>
+        <!--//////////////////////////////////////////////////////////////////////-->
+
+        <br>
 
 
-    <div id="gifs-appear-here"></div>
+        <form>
+            <div class="form-row">
+                <div class="col-sm-4">
+                    <label for="animalAdded" id="text">Add an animal</label>
+                    <input type="text" class="form-control" id="animalAdded">
+                </div>
+                <div class="col-sm-6"></div>
+                <div class="col-sm-6">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- ////////// WHERE THE GIFS WILL GO /////////////////////-->
+        <!-- ////////////////////////////////////////////////////// -->
+        <div id="gifs-appear-here"></div>
 
 
-    <!-- <div>
+
+        <!-- <div>
 <button type="button" class="btn btn-danger" id="dog-button"></button> -->
-    <!-- <button type="button" class="btn btn-danger" id="dog-button"></button> -->
-    <!-- </div> -->
+        <!-- <button type="button" class="btn btn-danger" id="dog-button"></button> -->
+        <!-- </div> -->
 
-    <script src="./assets/javascript/gif.js"></script>
+        <script src="./assets/javascript/gif.js"></script>
 
 
 </body>

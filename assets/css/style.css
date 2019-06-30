@@ -12,11 +12,32 @@ button {
     background-color: rgb(24, 70, 131);
     color: white;
     display: inline-block;
-    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
-    padding: 4px;
-    margin: 2px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    padding: 7px;
+    margin-top: 15px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: none;
+
 }
 
+.btn {
+    background-color: rgb(24, 70, 131);
+    color: white;
+}
+
+#text {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 #gifs-appear-here {
+    display: inline-grid;
+    grid-column-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    margin: 15px;
+    border: 15px; 
+    
     
 }

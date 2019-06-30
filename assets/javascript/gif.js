@@ -1,33 +1,58 @@
 //////IMPORTANT GIPHY PARAMETERS ////////
-//// q
-//// limit
-//// rating
+//// q - search query term or phrase
+//// limit - maximum number of objects to return, the default is 25
+//// rating - filters results by rating. If not specified, results will include all possible ratings
 
 // ARRAY OF DOGS TO HAVE LISTED ON THE PAGE TO START (not currently doing it this way)
 var topics = [
-  "Shetlie",
-  "Bulldog",
-  "Labrador",
-  "German Shepherd",
-  "Husky",
-  "Boxer",
-  "Border Collie",
-  "Collie",
-  "Dalmation",
-  "Poodle"
+  "sheltie",
+  "bulldog",
+  "labrador",
+  "husky",
+  "boxer (dog)",
+  "border collie",
+  "collie",
+  "dalmation",
+  "german shepherd",
+  "australian shepherd",
+  "pomeranian"
 ];
-///////////////////////////////////////////////////////////// (buttons were right next to each other, no space between them)
+
+// TESTING FUNCTIONALITY OF ADDING BUTTONS TO TOPICS
+function addButton() {
+topics.push("big dog");
+topics.push("small-dog");
+topics.push("lazy dog");
+}
+addButton();
+////////////////////////////////////////////////////////////
 // FUNCTION TO MAKE A BUTTON FOR EACH DOG BRED
-// function makeButton () {
-//     var more = document.getElementById("dog-button");
-//     for (var i = 0; i < topics.length; i++) {
-//       var newButton = document.createElement("button");
-//       newButton.innerHTML=topics[i];
-//       more.appendChild(newButton);
-//     }
-//   }
-//   makeButton();
-///////////////////////////////////////////////////////////////
+for(var i = 0; i < topics.length; i++)  {
+
+  // Inside the loop...
+
+  // 2. Create a variable named "topicsButton" equal to $("<button>");
+
+      var topicsButton = $("<button>");
+
+  // 3. Then give each "topicsButton" the following classes: "topics-button" "topics" "topics-button-color".
+      topicsButton.addClass("topics-button topics topics-button-color");
+
+  // 4. Then give each "topicsButton" an attribute called "data-anaimal", with a value eqaual to "topics[i]"
+      topicsButton.attr("data-animal", topics[i]);
+
+  // 5. Then give each "topicsButton" a text equal to "topics[i]".
+      topicsButton.text(topics[i]);
+
+  // 6. Finally, append each "topicsButton" to the "#buttons" div (provided).
+      $("#buttons").append(topicsButton);
+}
+////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////
+/// ONCLICK EVENT TO ATTACH DATA-ANIMAL ATTRIBUTE ///
+
 
 // Adding click event listen listener to all buttons
 $("button").on("click", function() {
@@ -44,9 +69,9 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
   })
     // After data comes back from the request
     .then(function(response) {
-      console.log(queryURL);
+      // console.log(queryURL);
 
-      console.log(response);
+      // console.log(response);
       // storing the data from the AJAX request in the results variable
       var results = response.data;
 
@@ -73,3 +98,4 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       }
     });
 });
+
