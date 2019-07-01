@@ -25,6 +25,8 @@ topics.push("small-dog");
 topics.push("lazy dog");
 }
 addButton();
+
+
 ////////////////////////////////////////////////////////////
 // FUNCTION TO MAKE A BUTTON FOR EACH DOG BRED
 for(var i = 0; i < topics.length; i++)  {
@@ -98,4 +100,9 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
       }
     });
 });
+
+////////// MAKE NEW BUTTONS WHEN USER ENTERS TEXT INTO THE TEXT BOX ////////////
+
+
+///// MAKE GIF ANIMATION START AND STOP 
 
