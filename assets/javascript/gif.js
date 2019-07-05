@@ -1,108 +1,82 @@
-//////IMPORTANT GIPHY PARAMETERS ////////
+////// IMPORTANT GIPHY PARAMETERS ////////
 //// q - search query term or phrase
 //// limit - maximum number of objects to return, the default is 25
 //// rating - filters results by rating. If not specified, results will include all possible ratings
 
-// ARRAY OF DOGS TO HAVE LISTED ON THE PAGE TO START (not currently doing it this way)
+/// STARTING ARRAY OF DOGS TO HAVE LISTED ON THE PAGE ///
 var topics = [
-  "sheltie",
-  "bulldog",
-  "labrador",
-  "husky",
-  "boxer (dog)",
-  "border collie",
-  "collie",
-  "dalmation",
-  "german shepherd",
-  "australian shepherd",
-  "pomeranian"
+  "Shetland Sheepdog",
+  "Bulldog",
+  "Labrador",
+  "Husky",
+  "Boxer (dog)",
+  "Border collie",
+  "Collie",
+  "Dalmation",
+  "German Shepherd",
+  "Australian Shepherd",
+  "Pomeranian"
 ];
 
-// TESTING FUNCTIONALITY OF ADDING BUTTONS TO TOPICS
-function addButton() {
-topics.push("big dog");
-topics.push("small-dog");
-topics.push("lazy dog");
+/// FUNCTION FOR INITIAL SET OF DOG BREED BUTTONS ON THE PAGE FROM THE ARRAY ABOVE ///
+function makeButtons() {
+
+  $("#topics").empty();
+
+  for (var i = 0; i < topics.length; i++) {
+    $("#topics").append('<button class="topic-buttons btn btn-primary">' + topics[i] + '</button>');
+  }
 }
-addButton();
 
+/// TO ADD ADDITIONAL BUTTONS TO BE DISPLAYED WHEN THE USER ENTERS SOMETHING INTO THE TEXT BOX /// 
+$(document).on('click', '#addTopic', function (event) {
 
-////////////////////////////////////////////////////////////
-// FUNCTION TO MAKE A BUTTON FOR EACH DOG BRED
-for(var i = 0; i < topics.length; i++)  {
+  event.preventDefault();
 
-  // Inside the loop...
+  var newTopic = $("#new-item").val().trim();
+  topics.push(newTopic);
 
-  // 2. Create a variable named "topicsButton" equal to $("<button>");
+  $("#topics").append('<button class="topic-buttons btn btn-primary">' + newTopic + '</button>');
 
-      var topicsButton = $("<button>");
+  /// TO CLEAR WHATEVER USER TYPED INTO THE INPUT BOX ///
+  $("#new-item").val("");   
+});
 
-  // 3. Then give each "topicsButton" the following classes: "topics-button" "topics" "topics-button-color".
-      topicsButton.addClass("topics-button topics topics-button-color");
+/// EVENT LISTENER ////
+$(document).on('click', '.topic-buttons', function (event) {
 
-  // 4. Then give each "topicsButton" an attribute called "data-anaimal", with a value eqaual to "topics[i]"
-      topicsButton.attr("data-animal", topics[i]);
-
-  // 5. Then give each "topicsButton" a text equal to "topics[i]".
-      topicsButton.text(topics[i]);
-
-  // 6. Finally, append each "topicsButton" to the "#buttons" div (provided).
-      $("#buttons").append(topicsButton);
-}
-////////////////////////////////////////////////////////////
-
-
-////////////////////////////////////////////////////////////////////////
-/// ONCLICK EVENT TO ATTACH DATA-ANIMAL ATTRIBUTE ///
-
-
-// Adding click event listen listener to all buttons
-$("button").on("click", function() {
-  // Grabbing and storing the data-animal property value from the button
-  var animal = $(this).attr("data-animal");
-
-// Constructing a queryURL using the animal name
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-  animal + "&api_key=A1xDFiGHVrU0HZH3N2kAt6m0llY8Vurw&limit=10";
+  /// STORING OUR GIPHY API URL FOR DOG IMAGE ///
+  var type = this.innerText;
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+    type + "&api_key=A1xDFiGHVrU0HZH3N2kAt6m0llY8Vurw&limit=10&rating=pg";
 
   $.ajax({
     url: queryURL,
     method: "GET"
   })
-    // After data comes back from the request
-    .then(function(response) {
-      // console.log(queryURL);
+    .then(function (response) {
+      for (var i = 0; i < response.data.length; i++) {
 
-      // console.log(response);
-      // storing the data from the AJAX request in the results variable
-      var results = response.data;
-
-      // Looping through each result item
-      for (var i = 0; i < results.length; i++) {
-
-        // Creating and storing a div tag
-        var animalDiv = $("<div>");
-
-        // Creating a paragraph tag with the result item's rating
-        var p = $("<p>").text("Rating: " + results[i].rating);
-
-        // Creating and storing an image tag
-        var animalImage = $("<img>");
-        // Setting the src attribute of the image to a property pulled off the result item
-        animalImage.attr("src", results[i].images.fixed_height.url);
-
-        // Appending the paragraph and image tag to the animalDiv
-        animalDiv.append(p);
-        animalDiv.append(animalImage);
-
-        // Prependng the animalDiv to the HTML page in the "#gifs-appear-here" div
-        $("#gifs-appear-here").prepend(animalDiv);
+        $("#gifs-go-here").append('<img class="gif" src="' + response.data[i].images.fixed_height_still.url + '">');
       }
     });
+
+  $("#gifs-go-here").empty();
+
 });
+makeButtons();
 
-////////// MAKE NEW BUTTONS WHEN USER ENTERS TEXT INTO THE TEXT BOX ////////////
 
-
-///// MAKE GIF ANIMATION START AND STOP 
-
+/// MAKE GIFS START AND STOP WHEN CLICKED ON ///
+$('body').on('click', '.gif', function () {
+  var src = $(this).attr("src");
+  if ($(this).hasClass('playing')) {
+  /// STOP ///
+    $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
+    $(this).removeClass('playing');
+  } else {
+  /// PLAY ///
+    $(this).addClass('playing');
+    $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
+  }
+});

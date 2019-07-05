@@ -1,36 +1,58 @@
-
-/* #dog-button {
-    background-color: rgb(24, 70, 131);
-    color: white;
-    display: inline-block;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    padding: 5px;
-    margin: 5px;
-} */
+body {
+    background-color: rgb(51, 43, 104);
+}
 
 button {
-    background-color: rgb(24, 70, 131);
     color: white;
     display: inline-block;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    padding: 7px;
     margin-top: 15px;
     margin-left: 15px;
-    border-radius: 5px;
-    border: none;
+}
 
+#new-item {
+    font-size: 20px;
+    color: rgb(51, 43, 104);
+}
+
+.topic-buttons {
+    font-size: 24px;
+}
+
+hr {
+    background-color: white;
+}
+
+h1 {    
+    color: white;
+    font-size: 75px;
+    margin-left: 15px;
+}
+
+#heart {
+    color: pink;
+}
+
+h3 {
+    color: white;
+    margin-left: 15px;
+}
+
+span {
+    font-style: italic;
+    color: pink; 
 }
 
 .btn {
-    background-color: rgb(24, 70, 131);
+    background-color: #2B6851;
     color: white;
-}
-
-#text {
-    font-size: 18px;
     font-weight: bold;
 }
 
+.btn:hover {
+    background-color: rgb(92, 84, 197);
+    transition-duration: 0.4s;
+}
 
 #gifs-appear-here {
     display: inline-grid;
@@ -38,6 +60,14 @@ button {
     grid-template-columns: repeat(auto-fit, minmax(150px, auto));
     margin: 15px;
     border: 15px; 
-    
-    
+}
+
+#addTopic {
+    background-color: #2B6851;
+    color: white;
+}
+
+#addTopic:hover {
+    background-color: rgb(92, 84, 197);
+    transition-duration: 0.4s;
 }

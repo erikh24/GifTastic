@@ -17,60 +17,50 @@
     <!-- Link to CSS stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
 
+    <!-- Link to Font Awesome -->
+    <script src="https://kit.fontawesome.com/2f14113866.js"></script>
+
 </head>
 
 <body>
 
-    <!-- /////////////////////////////////////////////////////////////
-    Don't delete until new buttons made with for-loop shows assocaite gifs
-    <button data-animal="shetland-sheepdog">Sheltie</button>
-    <button data-animal="bulldog">Bulldog</button>
-    <button data-animal="labrador">Labrador</button>
-    <button data-animal="german-shepherd">German Shepherd</button>
-    <button data-animal="boxer">Boxer</button>
-    <button data-animal="husky">Husky</button>
-    <button data-animal="american-staffordshire-terrier">American Staffordshire Terrier</button>
-    <button data-animal="golden-retreiver">Golden Retreiver</button>
-    <button data-animal="collie">Collie</button>
-    <button data-animal="border-collie">Border Collie</button>
-    <button data-animal="dalmation">Dalmation</button>
-    <button data-animal="australian-shepherd">Australian Shepherd</button>
-    ///////////////////////////////////////////////////////////////////////// -->
-    <div class="container-fluid">
+    <!-- /// TITLE OF PAGE /// -->
+    <div class="container">
+        <div class="row">
+            <h1> Who Doesn't <i class="far fa-heart" id="heart"></i> Dog Gifs?</h1>
+            <h3>Click the buttons below to view some <span>sweet</span> dog gifs. Then add some buttons of your own to
+                experience some more of your chosing.</h3>
+        </div>
+        <hr>
+    </div>
 
-        <!-- DOING IT THIS WAY-->
-        <div id="buttons"></div>
-        <!--//////////////////////////////////////////////////////////////////////-->
 
+    <!-- /// ADDING BREED BUTTONS, INPUT BOX AND BUTTON TO ADD NEW BUTTONS /// -->
+    <div class="container">
+        <div class="row text-center tag-row" id="topics"></div>
         <br>
+        <input type="" name="" id="new-item">
+        <button class="btn btn-secondary btn-lg" id="addTopic">Add New Button</button>
+    </div>
+    
+    <br>
 
+    <div class="container">
+        <hr>
+    </div>
 
-        <form>
-            <div class="form-row">
-                <div class="col-sm-4">
-                    <label for="animalAdded" id="text">Add an animal</label>
-                    <input type="text" class="form-control" id="animalAdded">
-                </div>
-                <div class="col-sm-6"></div>
-                <div class="col-sm-6">
-                    <button type="submit" class="btn">Submit</button>
-                </div>
-            </div>
-        </form>
+    <br>
 
-        <!-- ////////// WHERE THE GIFS WILL GO /////////////////////-->
-        <!-- ////////////////////////////////////////////////////// -->
-        <div id="gifs-appear-here"></div>
+    <!-- /// WHERE THE GIFS WILL BE DISPLAYED ON THE PAGE /// -->
+    <div class="container">
+        <div id="gifs-go-here"></div>
+    </div>
 
+    <script src="./assets/javascript/gif.js"></script>
 
-
-        <!-- <div>
-<button type="button" class="btn btn-danger" id="dog-button"></button> -->
-        <!-- <button type="button" class="btn btn-danger" id="dog-button"></button> -->
-        <!-- </div> -->
-
-        <script src="./assets/javascript/gif.js"></script>
-
+    <footer>
+        <br>
+    </footer>
 
 </body>
 
