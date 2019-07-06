@@ -56,10 +56,14 @@ span {
 
 #gifs-go-here {
     color: pink;
-    display: inline-grid;
-    font-size: 25px;
+    font-size: 15px;
     margin-left: 15px;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.image-holder {
+    display: inline-block;
 }
 
 #addTopic {

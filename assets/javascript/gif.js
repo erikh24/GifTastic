@@ -56,8 +56,10 @@ $(document).on('click', '.topic-buttons', function (event) {
   })
     .then(function (response) {
       for (var i = 0; i < response.data.length; i++) {
-        $("#gifs-go-here").append('<img class="gif" src="' + response.data[i].images.fixed_height_still.url + '">');
-        $("#gifs-go-here").append("Rating: " + response.data[i].rating);
+        var imgHolder = $('<div class=\'image-holder\'>');
+        imgHolder.append('<img class="gif" src="' + response.data[i].images.fixed_height_still.url + '">');
+        imgHolder.append(`<p>Rating: ${response.data[i].rating}</p>`);
+        $("#gifs-go-here").append(imgHolder);
       }
     });
 
