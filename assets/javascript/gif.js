@@ -39,7 +39,7 @@ $(document).on('click', '#addTopic', function (event) {
   $("#topics").append('<button class="topic-buttons btn btn-primary">' + newTopic + '</button>');
 
   /// TO CLEAR WHATEVER USER TYPED INTO THE INPUT BOX ///
-  $("#new-item").val("");   
+  $("#new-item").val("");
 });
 
 /// EVENT LISTENER ////
@@ -56,8 +56,8 @@ $(document).on('click', '.topic-buttons', function (event) {
   })
     .then(function (response) {
       for (var i = 0; i < response.data.length; i++) {
-
         $("#gifs-go-here").append('<img class="gif" src="' + response.data[i].images.fixed_height_still.url + '">');
+        $("#gifs-go-here").append("Rating: " + response.data[i].rating);
       }
     });
 
@@ -71,11 +71,11 @@ makeButtons();
 $('body').on('click', '.gif', function () {
   var src = $(this).attr("src");
   if ($(this).hasClass('playing')) {
-  /// STOP ///
+    /// STOP ///
     $(this).attr('src', src.replace(/\.gif/i, "_s.gif"))
     $(this).removeClass('playing');
   } else {
-  /// PLAY ///
+    /// PLAY ///
     $(this).addClass('playing');
     $(this).attr('src', src.replace(/\_s.gif/i, ".gif"))
   }

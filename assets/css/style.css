@@ -54,12 +54,12 @@ span {
     transition-duration: 0.4s;
 }
 
-#gifs-appear-here {
+#gifs-go-here {
+    color: pink;
     display: inline-grid;
-    grid-column-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
-    margin: 15px;
-    border: 15px; 
+    font-size: 25px;
+    margin-left: 15px;
+    text-transform: capitalize;
 }
 
 #addTopic {
